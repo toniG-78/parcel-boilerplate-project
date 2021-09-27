@@ -1,0 +1,25 @@
+:root {
+  --color: #333;
+  --font-size: 1.2rem;
+  --background: #ddd;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--background);
+  background-image: linear-gradient(to left, red blue);
+  color: var(--color);
+  padding: 1rem;
+}
+
+/* classes */

@@ -1,7 +1,8 @@
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -13,8 +14,7 @@
   --accent-color: #fa6108;
   --bg-primary-color: var(--primary-color);
   --txt-primary-color: var(--secondary-color);
-  --txt-secondary-color: #e1d8cdb3;
-
+  --txt-secondary-color: rgba(225,216,205,0.70196);
   /* FONTS */
   --ff-primary: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -22,9 +22,16 @@
 body {
   min-height: 100vh;
   display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
   place-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-family: var(--ff-primary);
+  color: #e7dacb;
   color: var(--txt-primary-color);
+  background-color: #21374b;
   background-color: var(--bg-primary-color);
 }
 
@@ -35,9 +42,11 @@ footer {
 }
 
 h1 {
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   font-size: 1.6rem;
-  text-shadow: 0 0 5px rgba(0, 0, 0.3);
+  text-shadow: 0 0 5px black;
   margin-bottom: 2rem;
 }
 
@@ -73,6 +82,7 @@ footer {
   right: 0;
   text-align: center;
   padding: 1.5rem;
+  color: rgba(225,216,205,0.70196);
   color: var(--txt-secondary-color);
 }
 
@@ -82,14 +92,23 @@ footer {
   letter-spacing: 1px;
   margin-bottom: 1.2rem;
 }
+
 .logos {
   background-color: rgba(0, 0, 0, 0.2);
   padding: 0 2rem;
   border-radius: 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 5rem;
 }
 
@@ -132,7 +151,9 @@ footer {
   width: 250px;
   padding: 0.8rem 2rem;
   border-radius: 10px;
+  background-color: #fa6108;
   background-color: var(--accent-color);
+  color: #e7dacb;
   color: var(--txt-primary-color);
   text-decoration: none;
   font-weight: 400;
@@ -143,36 +164,64 @@ footer {
   width: auto;
   font-weight: 700;
   border-radius: 40%;
-  animation: pulse 2s infinite;
+  -webkit-animation: pulse 2s infinite;
+          animation: pulse 2s infinite;
   border-radius: 20px;
-  box-shadow: 0 0 0 rgba(250, 97, 8, 0.75);
-  transform: scale(1);
+  -webkit-box-shadow: 0 0 0 rgba(250, 97, 8, 0.75);
+          box-shadow: 0 0 0 rgba(250, 97, 8, 0.75);
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
-@keyframes pulse {
+@-webkit-keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 hsla(0, 0%, 100%, 0.4);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
     transform: scale(0.98);
     -webkit-transform: scale(0.98);
   }
   70% {
-    box-shadow: 0 0 0 20px hsla(0, 0%, 100%, 0);
+    -webkit-box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+            box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
     transform: scale(1);
     -webkit-transform: scale(1);
   }
   100% {
-    box-shadow: 0 0 0 0 hsla(0, 0%, 100%, 0);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     transform: scale(0.98);
     -webkit-transform: scale(0.98);
   }
 }
 
+@keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    transform: scale(0.98);
+    -webkit-transform: scale(0.98);
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+            box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    transform: scale(0.98);
+    -webkit-transform: scale(0.98);
+  }
+}
 @media (max-width: 600px) {
   .grid {
     grid-template-columns: 1fr;
     text-align: center;
+    grid-gap: 3rem;
     gap: 3rem;
   }
+
   .grid > div:first-child {
     margin: auto;
     padding-top: 2rem;
@@ -190,8 +239,8 @@ footer {
   }
 
   .logo,
-  h1,
-  .logos {
+h1,
+.logos {
     margin-left: auto;
     margin-right: auto;
   }
@@ -201,8 +250,8 @@ footer {
   }
 
   .logos__babel,
-  .logos__postcss,
-  .logos__sass {
+.logos__postcss,
+.logos__sass {
     width: 50px;
   }
 
@@ -213,7 +262,10 @@ footer {
 
   .box-img {
     width: 40%;
+    bottom: auto;
     bottom: initial;
     justify-self: center;
   }
 }
+
+/*# sourceMappingURL=/styles.f4e41cb8.css.map */
